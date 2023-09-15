@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список задач</title>
+</head>
+<body>
+    <h1>Список задач</h1>
+    <ul>
+        {% for row in rows %}
+        <li>{{ row[0] }} <form action="/delete" method="post"><input type="hidden" name="task_id" value="{{ loop.index }}"><input type="submit" value="delete"></form></li>
+        {% endfor %}
+    </ul>
+    <form action="/add" method="post">
+        <input type="text" name="task_text">
+        <input type="submit" value="add">
+    </form>
+</body>
+</html>
